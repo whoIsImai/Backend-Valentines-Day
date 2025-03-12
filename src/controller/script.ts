@@ -18,8 +18,8 @@ export async function yes(req: Request, res: Response) : Promise<void> {
 
 export async function no(req: Request, res: Response) : Promise<void> {
   const { data, error } = await resend.emails.send({
-    from: 'onboarding@resend.dev',
-    to: 'eltalk30@gmail.com',
+    from: process.env.FROMEMAIL || '',
+    to: process.env.TOEMAIL || '',
     subject: 'VALENTINES WEB APP RESPONSE',
     html: '<p>My Bad she said <strong>NO!</strong>!</p>'
   });
